@@ -22,7 +22,7 @@
     <Phrase key="CnlNum">Número</Phrase>
     <Phrase key="Active">Ativo</Phrase>
     <Phrase key="Name">Nome</Phrase>
-    <Phrase key="Code">Código</Phrase>
+    <Phrase key="Code">Codigo</Phrase>
     <Phrase key="DataTypeID">Tipo de dados</Phrase>
     <Phrase key="DataLen">Comprimento dos dados</Phrase>
     <Phrase key="CnlTypeID">Tipo de Canal</Phrase>
