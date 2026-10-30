@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
  * 
  * Author   : Mikhail Shiryaev
  * Created  : 2021
- * Modified : 2022
+ * Modified : 2025
  */
 
 #pragma warning disable 1591 // Missing XML comment for publicly visible type or member
@@ -35,10 +35,9 @@ namespace Scada.Web
     public static class WebPath
     {
         public const string Root = "/";
+        public const string AccessDeniedPage = "/Errors/AccessDenied";
+        public const string ErrorPage = "/Errors/Error";
         public const string AboutPage = "/About";
-        public const string AccessDeniedPage = "/AccessDenied";
-        public const string ConfigReloadPage = "/ConfigReload";
-        public const string ErrorPage = "/Error";
         public const string IndexPage = "/Index";
         public const string LoginPage = "/Login";
         public const string LogoutPage = "/Logout";

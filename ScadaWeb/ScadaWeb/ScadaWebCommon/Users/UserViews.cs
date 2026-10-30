@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -238,7 +238,7 @@ namespace Scada.Web.Users
                         userRights.GetRightByObj(viewEntity.ObjNum).View &&
                         CreateBranch(viewEntity) is ViewNode branchRootNode)
                     {
-                        MergeViewNodes(ViewNodes, new List<ViewNode> { branchRootNode }, 0);
+                        MergeViewNodes(ViewNodes, [branchRootNode], 0);
                     }
                 }
             }

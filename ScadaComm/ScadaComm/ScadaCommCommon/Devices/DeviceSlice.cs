@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -78,6 +78,9 @@ namespace Scada.Comm.Devices
         /// <summary>
         /// Gets the device tags whose data is included in the slice.
         /// </summary>
+        /// <remarks>
+        /// An array element cannot be null.
+        /// </remarks>
         public DeviceTag[] DeviceTags { get; }
 
         /// <summary>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Faceplate>
+<Faceplate editorVersion="6.0.0.0">
   <Document>
-    <EditorVersion>6.0.0.0</EditorVersion>
     <Size>
       <Width>100</Width>
       <Height>100</Height>
@@ -12,6 +11,8 @@
     <Text>
       <ID>1</ID>
       <Name />
+      <Enabled>True</Enabled>
+      <Visible>True</Visible>
       <Location>
         <X>10</X>
         <Y>10</Y>

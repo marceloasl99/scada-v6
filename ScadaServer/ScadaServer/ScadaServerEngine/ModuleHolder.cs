@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
  * 
  * Author   : Mikhail Shiryaev
  * Created  : 2020
- * Modified : 2024
+ * Modified : 2025
  */
 
 using Scada.Data.Entities;
@@ -108,6 +108,27 @@ namespace Scada.Server.Engine
                     catch (Exception ex)
                     {
                         log.WriteError(ex, ServerPhrases.ErrorInModule, nameof(OnServiceStart), moduleLogic.Code);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Calls the OnServiceReady method of the modules.
+        /// </summary>
+        public void OnServiceReady()
+        {
+            lock (moduleLock)
+            {
+                foreach (ModuleLogic moduleLogic in modules)
+                {
+                    try
+                    {
+                        moduleLogic.OnServiceReady();
+                    }
+                    catch (Exception ex)
+                    {
+                        log.WriteError(ex, ServerPhrases.ErrorInModule, nameof(OnServiceReady), moduleLogic.Code);
                     }
                 }
             }

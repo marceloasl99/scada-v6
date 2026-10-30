@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
  * 
  * Author   : Mikhail Shiryaev
  * Created  : 2020
- * Modified : 2023
+ * Modified : 2025
  */
 
 using Scada.Config;
@@ -81,6 +81,11 @@ namespace Scada.Server.Modules
         /// Gets the application level shared data.
         /// </summary>
         IDictionary<string, object> SharedData { get; }
+        
+        /// <summary>
+        /// Gets a value indicating whether the Server service is ready.
+        /// </summary>
+        bool IsReady { get; }
 
 
         /// <summary>
@@ -96,12 +101,12 @@ namespace Scada.Server.Modules
         /// <summary>
         /// Gets the current data of the specified channels.
         /// </summary>
-        CnlData[] GetCurrentData(int[] cnlNums, bool useCache, out long cnlListID);
+        Slice GetCurrentData(int[] cnlNums, bool useCache, out long cnlListID);
 
         /// <summary>
         /// Gets the current data of the cached channel list.
         /// </summary>
-        CnlData[] GetCurrentData(long cnlListID);
+        Slice GetCurrentData(long cnlListID);
 
         /// <summary>
         /// Gets the trends of the specified channels.

@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
  * 
  * Author   : Mikhail Shiryaev
  * Created  : 2016
- * Modified : 2024
+ * Modified : 2025
  */
 
 using Microsoft.AspNetCore.Html;
@@ -167,6 +167,7 @@ namespace Scada.Web
             return new StringBuilder()
                 .AppendLine("{")
                 .AppendLine("isStub: false,")
+                .AppendLine($"basePath: '{urlHelper.Content("~")}',")
                 .AppendLine($"rootPath: '{urlHelper.Content("~/")}',")
                 .AppendLine($"locale: '{Locale.Culture.Name.JsEncode()}',")
                 .AppendLine($"productName: '{CommonPhrases.ProductName.JsEncode()}'")
@@ -207,6 +208,14 @@ namespace Scada.Web
         public static HtmlString HtmlEncodeWithBreak(this string s)
         {
             return HttpUtility.HtmlEncode(s).ReplaceLineEndings("<br />").ToHtmlString();
+        }
+
+        /// <summary>
+        /// Gets the beginning of the string and replaces newline sequences.
+        /// </summary>
+        public static HtmlString GetPreviewBreakLines(this string s, int maxLength = ScadaUtils.StringPreviewLength)
+        {
+            return s.GetPreview(maxLength).HtmlEncodeWithBreak();
         }
 
         /// <summary>

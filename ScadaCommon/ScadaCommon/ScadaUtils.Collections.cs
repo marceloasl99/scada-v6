@@ -39,26 +39,30 @@ namespace Scada
             // argument1 = val1
             // argument2 = val2
             Dictionary<string, string> args = new Dictionary<string, string>();
-            string[] parts = (s ?? "").Split(separator);
-
-            foreach (string part in parts)
+            
+            if (!string.IsNullOrWhiteSpace(s))
             {
-                string key;
-                string val;
-                int idx = part.IndexOf("=");
+                string[] parts = s.Split(separator);
 
-                if (idx >= 0)
+                foreach (string part in parts)
                 {
-                    key = part.Substring(0, idx).Trim();
-                    val = part.Substring(idx + 1).Trim();
-                }
-                else
-                {
-                    key = part.Trim();
-                    val = "";
-                }
+                    string key;
+                    string val;
+                    int idx = part.IndexOf('=');
 
-                args[key] = val;
+                    if (idx >= 0)
+                    {
+                        key = part.Substring(0, idx).Trim();
+                        val = part.Substring(idx + 1).Trim();
+                    }
+                    else
+                    {
+                        key = part.Trim();
+                        val = "";
+                    }
+
+                    args[key] = val;
+                }
             }
 
             return args;
@@ -403,6 +407,25 @@ namespace Scada
                         dictionary.Add(pair.Key, pair.Value);
                 }
             }
+        }
+
+        /// <summary>
+        /// Removes the elements with the specified keys from the dictionary.
+        /// </summary>
+        public static void Remove<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, IEnumerable<TKey> keys)
+        {
+            foreach (TKey key in keys)
+            {
+                dictionary.Remove(key);
+            }
+        }
+
+        /// <summary>
+        /// Swaps the list elements.
+        /// </summary>
+        public static void Swap<T>(this IList<T> list, int index1, int index2)
+        {
+            (list[index1], list[index2]) = (list[index2], list[index1]);
         }
     }
 }

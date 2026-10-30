@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -106,22 +106,22 @@ namespace Scada.Web.Plugins
         /// <summary>
         /// Gets the view specifications.
         /// </summary>
-        public virtual ICollection<ViewSpec> ViewSpecs => null;
+        public virtual List<ViewSpec> ViewSpecs => null;
 
         /// <summary>
         /// Gets the data window specifications.
         /// </summary>
-        public virtual ICollection<DataWindowSpec> DataWindowSpecs => null;
+        public virtual List<DataWindowSpec> DataWindowSpecs => null;
 
         /// <summary>
         /// Gets the script URLs to add to the main page.
         /// </summary>
-        public virtual ICollection<string> ScriptUrls => null;
+        public virtual List<string> ScriptUrls => null;
 
         /// <summary>
         /// Gets the URLs of the CSS stylesheets to add to the main page.
         /// </summary>
-        public virtual ICollection<string> StyleUrls => null;
+        public virtual List<string> StyleUrls => null;
 
         /// <summary>
         /// Gets the client-side JavaScript to add to the main page.

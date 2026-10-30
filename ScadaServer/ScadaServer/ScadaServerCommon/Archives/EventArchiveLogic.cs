@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,14 +52,6 @@ namespace Scada.Server.Archives
         /// </summary>
         protected virtual EventArchiveOptions ArchiveOptions => null;
 
-
-        /// <summary>
-        /// Checks that the timestamp is inside the retention period.
-        /// </summary>
-        protected bool TimeInsideRetention(DateTime timestamp, DateTime now)
-        {
-            return ArchiveOptions != null && now.AddDays(-ArchiveOptions.Retention) <= timestamp;
-        }
 
         /// <summary>
         /// Gets the event by ID.

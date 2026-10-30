@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
  * 
  * Author   : Mikhail Shiryaev
  * Created  : 2021
- * Modified : 2021
+ * Modified : 2025
  */
 
 using Microsoft.AspNetCore.Authentication;
@@ -55,17 +55,9 @@ namespace Scada.Web.Code
 
         public override Task RedirectToAccessDenied(RedirectContext<CookieAuthenticationOptions> context)
         {
-            if (context.Request.Path.StartsWithSegments("/api") &&
-                context.Response.StatusCode == StatusCodes.Status200OK)
-            {
-                // do not redirect to the access denied page
-                context.Response.StatusCode = StatusCodes.Status403Forbidden;
-                return Task.CompletedTask;
-            }
-            else
-            {
-                return base.RedirectToAccessDenied(context);
-            }
+            // do not redirect to the access denied page
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            return Task.CompletedTask;
         }
     }
 }

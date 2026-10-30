@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
  */
 
 using Scada.Config;
+using System;
 
 namespace Scada.Server.Archives
 {
@@ -46,6 +47,15 @@ namespace Scada.Server.Archives
         /// Gets or sets the duration of time that the archive retains data, days.
         /// </summary>
         public int Retention { get; set; }
+
+
+        /// <summary>
+        /// Checks that the timestamp is inside the retention period.
+        /// </summary>
+        public bool TimeInsideRetention(DateTime timestamp, DateTime now)
+        {
+            return now.AddDays(-Retention) <= timestamp;
+        }
 
         /// <summary>
         /// Adds the options to the list.

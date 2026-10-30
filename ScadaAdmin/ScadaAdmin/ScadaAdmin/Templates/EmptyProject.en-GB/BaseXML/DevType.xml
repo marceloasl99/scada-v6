@@ -62,9 +62,9 @@
   </DevType>
   <DevType>
     <DevTypeID>211</DevTypeID>
-    <Name>BarcodeScanner</Name>
+    <Name>Barcode Scanner</Name>
     <Driver>DrvBarcodeScanner</Driver>
-    <Descr>Receives data from barcode scanner</Descr>
+    <Descr>Receives data from a barcode scanner</Descr>
   </DevType>
   <DevType>
     <DevTypeID>212</DevTypeID>
@@ -142,7 +142,7 @@
     <DevTypeID>224</DevTypeID>
     <Name>Telegram</Name>
     <Driver>DrvTelegram</Driver>
-    <Descr>Sends notifications by Telegram</Descr>
+    <Descr>Sends notifications via Telegram messenger</Descr>
   </DevType>
   <DevType>
     <DevTypeID>225</DevTypeID>
@@ -221,6 +221,36 @@
     <Name>CSV Reader</Name>
     <Driver>DrvCsvReader</Driver>
     <Descr>Reads data from a CSV file</Descr>
+  </DevType>
+  <DevType>
+    <DevTypeID>238</DevTypeID>
+    <Name>Max Messenger</Name>
+    <Driver>DrvMaxMessenger</Driver>
+    <Descr>Sends notifications via Max messenger</Descr>
+  </DevType>
+  <DevType>
+    <DevTypeID>239</DevTypeID>
+    <Name>RS Client</Name>
+    <Driver>DrvRsClient</Driver>
+    <Descr>Transmits channel data from Server to Communicator, and commands from Communicator to Server</Descr>
+  </DevType>
+  <DevType>
+    <DevTypeID>240</DevTypeID>
+    <Name>Redundancy Selector</Name>
+    <Driver>DrvRedundancySelector</Driver>
+    <Descr>Selects the available of two specified devices, receives data from it and sends commands</Descr>
+  </DevType>
+  <DevType>
+    <DevTypeID>241</DevTypeID>
+    <Name>SMS Parser</Name>
+    <Driver>DrvSmsParser</Driver>
+    <Descr>Retrieves data received by the SMS driver using a custom script</Descr>
+  </DevType>
+  <DevType>
+    <DevTypeID>242</DevTypeID>
+    <Name>HTTP API</Name>
+    <Driver>DrvHttpApi</Driver>
+    <Descr>Receives data and sends commands as an HTTP API client</Descr>
   </DevType>
   <DevType>
     <DevTypeID>1001</DevTypeID>

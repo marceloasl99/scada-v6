@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2025 Rapid Software LLC
+ * Copyright 2026 Rapid Software LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
  * 
  * Author   : Mikhail Shiryaev
  * Created  : 2016
- * Modified : 2024
+ * Modified : 2025
  */
 
 namespace Scada.Web
@@ -62,7 +62,7 @@ namespace Scada.Web
         /// </summary>
         public override string[] GetProbingDirs()
         {
-            return new string[] { ExeDir, PluginDir };
+            return [ExeDir, PluginDir];
         }
     }
 }

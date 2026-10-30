@@ -1,32 +1,35 @@
 ﻿// Copyright (c) Rapid Software LLC. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Xml;
+
 namespace Scada.Web.Plugins.PlgMimic.Config
 {
     /// <summary>
-    /// Represents general options of mimic diagrams.
-    /// <para>Представляет основные параметры мнемосхем.</para>
+    /// Represents general options of mimic diagrams used in runtime and editing modes.
+    /// <para>Представляет основные параметры мнемосхем, используемые режимах выполнения и редактирования.</para>
     /// </summary>
     public class GeneralOptions
     {
         /// <summary>
-        /// Gets or sets the data refresh rate in milliseconds.
+        /// Gets or sets the URL of a custom stylesheet.
         /// </summary>
-        public int RefreshRate { get; set; } = 1000;
+        public string CustomCss { get; set; } = "";
 
         /// <summary>
-        /// Gets or sets the scale type.
+        /// Gets or sets the URL of a custom script.
         /// </summary>
-        public ScaleType ScaleType { get; set; } = ScaleType.Numeric;
+        public string CustomJs { get; set; } = "";
+
 
         /// <summary>
-        /// Gets or sets the scale value.
+        /// Loads the options from the XML node.
         /// </summary>
-        public double ScaleValue { get; set; } = 1.0;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether to remember last scheme scale.
-        /// </summary>
-        public bool RememberScale { get; set; } = true;
+        public void LoadFromXml(XmlNode xmlNode)
+        {
+            ArgumentNullException.ThrowIfNull(xmlNode, nameof(xmlNode));
+            CustomCss = xmlNode.GetChildAsString("CustomCss");
+            CustomJs = xmlNode.GetChildAsString("CustomJs");
+        }
     }
 }

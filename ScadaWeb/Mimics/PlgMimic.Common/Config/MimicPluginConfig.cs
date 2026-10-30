@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using Scada.Config;
+using System.Xml;
 
 namespace Scada.Web.Plugins.PlgMimic.Config
 {
@@ -26,8 +27,18 @@ namespace Scada.Web.Plugins.PlgMimic.Config
         /// Gets the fonts.
         /// </summary>
         public List<FontOptions> Fonts { get; private set; }
-        
-        
+
+        /// <summary>
+        /// Gets the runtime options.
+        /// </summary>
+        public RuntimeOptions RuntimeOptions { get; private set; }
+
+        /// <summary>
+        /// Gets the editor options.
+        /// </summary>
+        public EditorOptions EditorOptions { get; private set; }
+
+
         /// <summary>
         /// Sets the default values.
         /// </summary>
@@ -35,6 +46,8 @@ namespace Scada.Web.Plugins.PlgMimic.Config
         {
             GeneralOptions = new GeneralOptions();
             Fonts = [];
+            RuntimeOptions = new RuntimeOptions();
+            EditorOptions = new EditorOptions();
         }
 
         /// <summary>
@@ -42,7 +55,28 @@ namespace Scada.Web.Plugins.PlgMimic.Config
         /// </summary>
         protected override void Load(TextReader reader)
         {
+            XmlDocument xmlDoc = new();
+            xmlDoc.Load(reader);
+            XmlElement rootElem = xmlDoc.DocumentElement;
 
+            if (rootElem.SelectSingleNode("GeneralOptions") is XmlNode generalOptionsNode)
+                GeneralOptions.LoadFromXml(generalOptionsNode);
+
+            if (rootElem.SelectSingleNode("Fonts") is XmlNode fontsNode)
+            {
+                foreach (XmlElement fontElem in fontsNode.SelectNodes("Font"))
+                {
+                    FontOptions fontOptions = new();
+                    fontOptions.LoadFromXml(fontElem);
+                    Fonts.Add(fontOptions);
+                }
+            }
+
+            if (rootElem.SelectSingleNode("RuntimeOptions") is XmlNode runtimeOptionsNode)
+                RuntimeOptions.LoadFromXml(runtimeOptionsNode);
+
+            if (rootElem.SelectSingleNode("EditorOptions") is XmlNode editorOptionsNode)
+                EditorOptions.LoadFromXml(editorOptionsNode);
         }
     }
 }
